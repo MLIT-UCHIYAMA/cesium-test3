@@ -51,6 +51,23 @@
       //地形クランプ
       viewer.scene.globe.depthTestAgainstTerrain = true;
 
+      //ポイントオブジェクトを追加。
+      point = viewer.entities.add({
+        name:"プラトー！！", //レイヤ名
+        description:"我らのオフィス",　//レイヤの説明
+        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,500), //経度,緯度,高さ
+        point : {
+                pixelSize : 10, //ポイントのサイズ
+                color : Cesium.Color.BLUE //ポイントの色
+                }
+        });
+
+      //カメラの初期位置（フライ設定）
+          viewer.camera.flyTo({   
+          destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
+          });
+
+
     </script>
   </body>
 </html>
