@@ -102,6 +102,17 @@
       height: 25, // default: undefined
       });
 
+      // Color the buildings based on their distance from a selected central location
+      osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+        color : {
+        conditions : [
+            ['${Height} >= 100', 'color("purple", 0.5)'],
+            ['${Height} >= 50', 'color("red")'],
+            ['true', 'color("blue")']
+        ]
+    },
+    },);
+
     </script>
   </body>
 </html>
