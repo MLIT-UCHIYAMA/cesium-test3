@@ -71,6 +71,18 @@
                 pixelSize : 10, //ポイントのサイズ
                 color : Cesium.Color.BLUE //ポイントの色
                 }
+        label : {
+            text: "プラトー本部",
+            font: "14pt sans-serif",
+            heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+            horizontalOrigin: Cesium.HorizontalOrigin.LEFT,
+            verticalOrigin: Cesium.VerticalOrigin.BASELINE,
+            fillColor: Cesium.Color.BLACK,
+            showBackground: true,
+            backgroundColor: new Cesium.Color(1, 1, 1, 0.7),
+            backgroundPadding: new Cesium.Cartesian2(8, 4),
+            disableDepthTestDistance: Number.POSITIVE_INFINITY,
+          },
         });
 
       //カメラの初期位置（フライ設定）
@@ -85,6 +97,8 @@
       billboardCollection.add({
       position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,130.0),
       image : "../images/logo_004.png",
+      width: 100, // default: undefined
+      height: 25, // default: undefined
       });
 
     </script>
