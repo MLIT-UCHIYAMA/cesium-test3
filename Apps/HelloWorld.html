@@ -51,6 +51,12 @@
       //地形クランプ
       viewer.scene.globe.depthTestAgainstTerrain = true;
 
+      // 3dtilesの追加.
+      var osmBuildingsTileset = Cesium.createOsmBuildings();
+      tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+          url : "../3dtiles/13101_chiyoda-ku/tileset.json",
+      }));
+
       //ポイントオブジェクトを追加。
       point = viewer.entities.add({
         name:"プラトー！！", //レイヤ名
@@ -66,8 +72,6 @@
           viewer.camera.flyTo({   
           destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
           });
-
-
     </script>
   </body>
 </html>
