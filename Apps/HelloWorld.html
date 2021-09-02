@@ -28,7 +28,25 @@
   <body>
     <div id="cesiumContainer"></div>
     <script>
-      var viewer = new Cesium.Viewer("cesiumContainer");
+      var viewer = new Cesium.Viewer("cesiumContainer",{
+      //terrain読み込み。
+      terrainProvider: Cesium.createWorldTerrain(),
+      //2.5次元表現をデフォルトに
+      sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
+      //その他ビューア設定
+      baseLayerPicker : false,
+      timeline : false,
+      animation : false,
+      homeButton: false,
+      vrButton: true,
+      geocoder:false,
+      sceneModePicker:false,
+      navigationHelpButton:false,
+      shouldAnimate: true,
+      });
+
+      viewer.scene.globe.depthTestAgainstTerrain = true;
+
     </script>
   </body>
 </html>
