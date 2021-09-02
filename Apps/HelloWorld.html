@@ -71,7 +71,11 @@
                 pixelSize : 10, //ポイントのサイズ
                 color : Cesium.Color.BLUE //ポイントの色
                 }
+        });
+        
+      var myLabelEntity = view.entities.add({
         label : {
+            id: "my label",
             text: "プラトー本部",
             font: "14pt sans-serif",
             heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
@@ -83,7 +87,7 @@
             backgroundPadding: new Cesium.Cartesian2(8, 4),
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },
-        });
+        })
 
       //カメラの初期位置（フライ設定）
           viewer.camera.flyTo({   
