@@ -33,13 +33,14 @@
         requestWaterMask: true,
         requestVertexNormals: true,
       });
-      //地理院ベクタータイルを使ってみる
-      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-      url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-      credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-      })
+
       var viewer = new Cesium.Viewer("cesiumContainer",{
       terrainProvider: worldTerrain,
+      //地理院ベクタータイルを使ってみる
+      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+        url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+        credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+        }),
       //その他ビューア設定
       baseLayerPicker : false,
       timeline : false,
@@ -52,7 +53,7 @@
       shouldAnimate: true,
       });
     
-      //地形クランプ
+      //地下を隠す
       viewer.scene.globe.depthTestAgainstTerrain = true;
 
       // 3dtilesの追加.
