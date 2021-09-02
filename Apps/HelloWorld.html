@@ -79,15 +79,13 @@
           });
 
       //ビルボード
-          function addBillboard() {
-            Sandcastle.declare(addBillboard);
-            viewer.entities.add({
-              position: Cesium.Cartesian3.fromDegrees(139.75005,35.67596),
-              billboard: {
-                image: "../images/logo_004.png",
-              },
-            });
-          }
+      var billboardCollection = viewer.scene.primitives.add(new Cesium.BillboardCollection({
+      scene : viewer.scene
+      }));
+      billboardCollection.add({
+      position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0),
+      image : "../images/logo_004.png",
+      });
 
     </script>
   </body>
