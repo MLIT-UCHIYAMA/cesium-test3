@@ -76,19 +76,6 @@
                 }
         });
 
-      var layers = viewer.scene.imageryLayers;
-      var blackMarble = layers.addImageryProvider(
-        new Cesium.IonImageryProvider({ assetId: 3812 })
-      );
-      blackMarble.alpha = 0.5;
-      blackMarble.brightness = 2.0;
-      layers.addImageryProvider(
-        new Cesium.SingleTileImageryProvider({
-          url: "../images/logo_004",
-          rectangle: Cesium.Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75),
-        })
-      ); 
-
       //カメラの初期位置（フライ設定）
           viewer.camera.flyTo({   
           destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
