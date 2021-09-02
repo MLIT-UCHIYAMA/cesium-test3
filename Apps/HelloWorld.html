@@ -66,7 +66,7 @@
       point = viewer.entities.add({
         name:"プラトー！！", //レイヤ名
         description:"我らのオフィス",　//レイヤの説明
-        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,500), //経度,緯度,高さ
+        position : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,120), //経度,緯度,高さ
         point : {
                 pixelSize : 10, //ポイントのサイズ
                 color : Cesium.Color.BLUE //ポイントの色
@@ -77,6 +77,33 @@
           viewer.camera.flyTo({   
           destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
           });
+
+      // HTML overlay for showing feature name on mouseover
+      var nameOverlay = document.createElement("div");
+      viewer.container.appendChild(nameOverlay);
+      nameOverlay.className = "backdrop";
+      nameOverlay.style.display = "none";
+      nameOverlay.style.position = "absolute";
+      nameOverlay.style.bottom = "0";
+      nameOverlay.style.left = "0";
+      nameOverlay.style["pointer-events"] = "none";
+      nameOverlay.style.padding = "4px";
+      nameOverlay.style.backgroundColor = "black";
+
+      // Information about the currently selected feature
+      var selected = {
+        feature: undefined,
+        originalColor: new Cesium.Color(),
+      };
+
+      // An entity object which will hold info about the currently selected feature for infobox display
+      var selectedEntity = new Cesium.Entity();
+
+      // Get default left click handler for when a feature is not picked on left click
+      var clickHandler = viewer.screenSpaceEventHandler.getInputAction(
+        Cesium.ScreenSpaceEventType.LEFT_CLICK
+      );
+
     </script>
   </body>
 </html>
