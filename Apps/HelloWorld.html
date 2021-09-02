@@ -94,31 +94,17 @@
           destination : Cesium.Cartesian3.fromDegrees(139.75005,35.67596,10000.0)
           });
 
-      // HTML overlay for showing feature name on mouseover
-      var nameOverlay = document.createElement("div");
-      viewer.container.appendChild(nameOverlay);
-      nameOverlay.className = "backdrop";
-      nameOverlay.style.display = "none";
-      nameOverlay.style.position = "absolute";
-      nameOverlay.style.bottom = "0";
-      nameOverlay.style.left = "0";
-      nameOverlay.style["pointer-events"] = "none";
-      nameOverlay.style.padding = "4px";
-      nameOverlay.style.backgroundColor = "black";
-
-      // Information about the currently selected feature
-      var selected = {
-        feature: undefined,
-        originalColor: new Cesium.Color(),
-      };
-
-      // An entity object which will hold info about the currently selected feature for infobox display
-      var selectedEntity = new Cesium.Entity();
-
-      // Get default left click handler for when a feature is not picked on left click
-      var clickHandler = viewer.screenSpaceEventHandler.getInputAction(
-        Cesium.ScreenSpaceEventType.LEFT_CLICK
-      );
+      //ビルボード
+          function addBillboard() {
+            Sandcastle.declare(addBillboard);
+            viewer.entities.add({
+              position: Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
+              billboard: {
+                image: "../images/Cesium_Logo_overlay.png",
+              },
+            });
+          }
+W
 
     </script>
   </body>
