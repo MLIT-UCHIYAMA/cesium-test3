@@ -84,7 +84,7 @@
             backgroundColor: new Cesium.Color(1, 1, 1, 0.7),
             backgroundPadding: new Cesium.Cartesian2(8, 4),
           },
-        })
+        });
 
       //カメラの初期位置（フライ設定）
           viewer.camera.flyTo({   
@@ -103,15 +103,15 @@
       });
 
       // Color the buildings based on their distance from a selected central location
-      osmBuildingsTileset.style = new Cesium.Cesium3DTileStyle({
+      tileset.style = new Cesium.Cesium3DTileStyle({
         color : {
         conditions : [
             ['${Height} >= 100', 'color("purple", 0.5)'],
             ['${Height} >= 50', 'color("red")'],
             ['true', 'color("blue")']
-        ]
-    },
-    },);
+          ]
+                },
+      });
 
     </script>
   </body>
