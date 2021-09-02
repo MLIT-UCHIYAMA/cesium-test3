@@ -28,9 +28,14 @@
   <body>
     <div id="cesiumContainer"></div>
     <script>
-      var viewer = new Cesium.Viewer("cesiumContainer",{
       //terrain読み込み。
-      terrainProvider: Cesium.createWorldTerrain(),
+      var worldTerrain = Cesium.createWorldTerrain({
+        requestWaterMask: true,
+        requestVertexNormals: true,
+      });
+
+      var viewer = new Cesium.Viewer("cesiumContainer",{
+      terrainProvider: worldTerrain,
       //2.5次元表現をデフォルトに
       sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
       //その他ビューア設定
@@ -44,7 +49,8 @@
       navigationHelpButton:false,
       shouldAnimate: true,
       });
-
+    
+      //地形クランプ
       viewer.scene.globe.depthTestAgainstTerrain = true;
 
     </script>
