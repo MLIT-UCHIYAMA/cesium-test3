@@ -33,13 +33,16 @@
         requestWaterMask: true,
         requestVertexNormals: true,
       });
-
+      //ビューア設定
       var viewer = new Cesium.Viewer("cesiumContainer",{
       terrainProvider: worldTerrain,
       //地理院ベクタータイルを使ってみる
       imageryProvider : new Cesium.OpenStreetMapImageryProvider({
         url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
         credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+        }),
+       imageryProvider: Cesium.createWorldImagery({
+        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS,
         }),
       //その他ビューア設定
       baseLayerPicker : false,
@@ -72,6 +75,19 @@
                 color : Cesium.Color.BLUE //ポイントの色
                 }
         });
+
+      var layers = viewer.scene.imageryLayers;
+      var blackMarble = layers.addImageryProvider(
+        new Cesium.IonImageryProvider({ assetId: 3812 })
+      );
+      blackMarble.alpha = 0.5;
+      blackMarble.brightness = 2.0;
+      layers.addImageryProvider(
+        new Cesium.SingleTileImageryProvider({
+          url: "../images/logo_004",
+          rectangle: Cesium.Rectangle.fromDegrees(-75.0, 28.0, -67.0, 29.75),
+        })
+      ); 
 
       //カメラの初期位置（フライ設定）
           viewer.camera.flyTo({   
