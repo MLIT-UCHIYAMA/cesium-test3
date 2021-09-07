@@ -35,11 +35,11 @@
       });
       //ビューア設定
       var viewer = new Cesium.Viewer("cesiumContainer",{
-      terrainProvider: worldTerrain,
-      //生成したTerrainDEMを使ってみる
-      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-        url : '../terrain/',
-      }),
+        terrainProvider : new Cesium.CesiumTerrainProvider({
+          url : '../terrain/',
+        requestVertexNormals : true
+    }),
+      //terrainProvider: worldTerrain,
        
       //地理院ベクタータイルを使ってみる
       //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
