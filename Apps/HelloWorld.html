@@ -36,11 +36,17 @@
       //ビューア設定
       var viewer = new Cesium.Viewer("cesiumContainer",{
       terrainProvider: worldTerrain,
-      //地理院ベクタータイルを使ってみる
+      //生成したTerrainDEMを使ってみる
       imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-        url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-        credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-        }),
+        url : '../terrain/dem_5a_on_10b.tif',
+      }),
+       
+      //地理院ベクタータイルを使ってみる
+      //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+      //  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+      //  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+      //  }),
+      
       //その他ビューア設定
       baseLayerPicker : false,
       timeline : false,
