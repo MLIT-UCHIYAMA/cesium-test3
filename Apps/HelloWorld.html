@@ -35,19 +35,19 @@
       });
       //ビューア設定
       var viewer = new Cesium.Viewer("cesiumContainer",{
-        terrainProvider : new Cesium.CesiumTerrainProvider({
-          url : '../terrain/dem_5a_on_10b.tif',
-        requestVertexNormals : true
-    }),
-      //terrainProvider: worldTerrain,
+      terrainProvider: worldTerrain,
+    
+       //  terrainProvider : new Cesium.CesiumTerrainProvider({
+      //ローカルは不可    url : '../terrain/dem_5a_on_10b.tif',
        
       //地理院ベクタータイルを使ってみる
-      //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-      //  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-      //  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-      //  }),
+      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+        url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+        credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+        }),
       
       //その他ビューア設定
+      requestVertexNormals : true ,
       baseLayerPicker : false,
       timeline : false,
       animation : false,
