@@ -33,20 +33,8 @@
         requestWaterMask: true,
         requestVertexNormals: true,
       });
-      //ビューア設定
-      var viewer = new Cesium.Viewer("cesiumContainer",{
-      terrainProvider: worldTerrain,
-    
-       //  terrainProvider : new Cesium.CesiumTerrainProvider({
-      //ローカルは不可    url : '../terrain/dem_5a_on_10b.tif',
-       
-      //地理院ベクタータイルを使ってみる
-      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-        url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-        credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-        }),
-      
-      //その他ビューア設定
+
+      var viewer = new Cesium.Viewer('cesiumContainer',{
       requestVertexNormals : true ,
       baseLayerPicker : false,
       timeline : false,
@@ -58,6 +46,34 @@
       navigationHelpButton:false,
       shouldAnimate: true,
       });
+      
+      var imageProvider = new Cesium.UrlTemplateImageryProvider({ url: 'https://gic-plateau.s3.ap-northeast-1.amazonaws.com/2020/ortho/tiles/{z}/{x}/{y}.png', maximumLevel : 19});
+      var current_image = viewer.scene.imageryLayers.addImageryProvider(imageProvider); 
+
+      //ビューア設定
+      //var viewer = new Cesium.Viewer("cesiumContainer",{
+      //terrainProvider: worldTerrain,
+      //  terrainProvider : new Cesium.CesiumTerrainProvider({
+      //ローカルは不可    url : '../terrain/dem_5a_on_10b.tif',
+     
+      //地理院ベクタータイルを使ってみる
+      //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+      //  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+      //  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+      //  }),
+      
+      //その他ビューア設定
+      //requestVertexNormals : true ,
+      //baseLayerPicker : false,
+      //timeline : false,
+      //animation : false,
+      //homeButton: false,
+      //vrButton: true,
+      //geocoder:false,
+      //sceneModePicker:false,
+      //navigationHelpButton:false,
+      //shouldAnimate: true,
+      //});
     
       //地下を隠す
       viewer.scene.globe.depthTestAgainstTerrain = true;
