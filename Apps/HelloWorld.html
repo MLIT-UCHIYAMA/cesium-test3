@@ -33,10 +33,10 @@
     <div id="cesiumContainer"></div>
     <script>
       //terrain読み込み。
-      //tvar worldTerrain = Cesium.createWorldTerrain({
-      //t  requestWaterMask: true,
-      //t  requestVertexNormals: true,
-      //t});
+      var worldTerrain = Cesium.createWorldTerrain({
+        requestWaterMask: true,
+        requestVertexNormals: true,
+      });
 
       var viewer = new Cesium.Viewer('cesiumContainer');
       //,{
