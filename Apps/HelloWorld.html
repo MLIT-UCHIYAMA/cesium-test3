@@ -33,7 +33,7 @@
     <div id="cesiumContainer"></div>
     <script>
       //terrain読み込み。
-      var worldTerrain = Cesium.createWorldTerrain({
+        worldTerrain = Cesium.createWorldTerrain({
         requestWaterMask: true,
         requestVertexNormals: true,
       });
@@ -84,7 +84,7 @@
       //viewer.scene.globe.depthTestAgainstTerrain = true;
 
       // 3dtilesの追加.
-      var osmBuildingsTileset = Cesium.createOsmBuildings();
+      osmBuildingsTileset = Cesium.createOsmBuildings();
       tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
           url : "../3dtiles/13101_chiyoda-ku/tileset.json",
       }));
