@@ -52,8 +52,8 @@
       //shouldAnimate: true,
       //});
       
-      var imageProvider = new Cesium.UrlTemplateImageryProvider({ url: 'https://gic-plateau.s3.ap-northeast-1.amazonaws.com/2020/ortho/tiles/{z}/{x}/{y}.png', maximumLevel : 19});
-      var current_image = viewer.scene.imageryLayers.addImageryProvider(imageProvider); 
+      //var imageProvider = new Cesium.UrlTemplateImageryProvider({ url: 'https://gic-plateau.s3.ap-northeast-1.amazonaws.com/2020/ortho/tiles/{z}/{x}/{y}.png', maximumLevel : 19});
+      //var current_image = viewer.scene.imageryLayers.addImageryProvider(imageProvider); 
 
       //ビューア設定
       //var viewer = new Cesium.Viewer("cesiumContainer",{
@@ -62,10 +62,10 @@
       //ローカルは不可    url : '../terrain/dem_5a_on_10b.tif',
      
       //地理院ベクタータイルを使ってみる
-      //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-      //  url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
-      //  credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
-      //  }),
+      imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+        url : 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+        credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+        }),
       
       //その他ビューア設定
       //requestVertexNormals : true ,
